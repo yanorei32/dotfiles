@@ -1,0 +1,8 @@
+rofi.combi-modi:	window,drun,run
+rofi.modi: combi,drun,keys
+rofi.dpi: 150
+rofi.kb-mode-next: Alt+n
+rofi.kb-mode-previous: Alt+p
+rofi.sidebar-mode: true
+rofi.theme: /usr/share/rofi/themes/Adapta-Nokto.rasi
+
