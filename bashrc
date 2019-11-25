@@ -68,9 +68,9 @@ if [[ $current_uname == *Cygwin* ]]; then
 		dotnet_flags=$dotnet_flags' /utf8output'
 	fi
 
-	alias csc2.0=$dotnet_dir'v2.0.50727/csc.exe'$dotnetflags
-	alias csc3.5=$dotnet_dir'v3.5/csc.exe'$dotnetflags
-	alias csc4.0=$dotnet_dir'v4.0.30319/csc.exe'$dotnetflags
+	alias csc2.0=$dotnet_dir'v2.0.50727/csc.exe'$dotnet_flags
+	alias csc3.5=$dotnet_dir'v3.5/csc.exe'$dotnet_flags
+	alias csc4.0=$dotnet_dir'v4.0.30319/csc.exe'$dotnet_flags
 
 	unset dotnet_dir
 
@@ -80,13 +80,14 @@ if [[ $current_uname == *Cygwin* ]]; then
 
 	alias csc='csc4.0'
 
-	if [ -x "$vs_dir'2017'$vs_builder_path'15.0'" ]; then
-		alias csc2017=$vs_dir'2017'$vs_builder_path'15.0'$vs_csc_path$dotnetflags
+	if [ -x "${vs_dir}2017${vs_builder_path}15.0" ]; then
+		alias csc2017="\"${vs_dir}2017${vs_builder_path}15.0${vs_csc_path}\" ${dotnet_flags}"
 		alias csc='csc2017'
 	fi
 
-	if [ -x "$vs_dir'2019'$vs_builder_path'Current'" ]; then
-		alias csc2019=$vs_dir'2019'$vs_builder_path'Current'$vs_csc_path$dotnetflags
+
+	if [ -x "${vs_dir}2019${vs_builder_path}Current" ]; then
+		alias csc2019="\"${vs_dir}2019${vs_builder_path}Current${vs_csc_path}\" ${dotnet_flags}"
 		alias csc='csc2019'
 	fi
 
@@ -96,7 +97,6 @@ if [[ $current_uname == *Cygwin* ]]; then
 
 	unset dotnet_flags
 else
-	echo "[debian]"
 	alias upd8='sudo sh -c ''apt update -y; apt upgrade -y;'''
 fi
 

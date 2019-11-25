@@ -201,8 +201,6 @@ set encoding=utf-8
 " terminal encoding
 set termencoding=utf-8
 
-language C
-
 set fileformats=unix,dos,mac
 set fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16,default
 
