@@ -19,7 +19,7 @@ unset lower_hostname
 
 case "$TERM" in
 xterm*|rxvt*)
-	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@"$lowerhostname": \w\a\]$PS1"
+	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@${lower_hostname}: \w\a\]$PS1"
 	;;
 *)
 	;;
@@ -68,9 +68,9 @@ if [[ $current_uname == *Cygwin* ]]; then
 		dotnet_flags=$dotnet_flags' /utf8output'
 	fi
 
-	alias csc2.0=$dotnet_dir'v2.0.50727/csc.exe'$dotnet_flags
-	alias csc3.5=$dotnet_dir'v3.5/csc.exe'$dotnet_flags
-	alias csc4.0=$dotnet_dir'v4.0.30319/csc.exe'$dotnet_flags
+	alias csc2.0="${dotnet_dir}v2.0.50727/csc.exe$dotnet_flags"
+	alias csc3.5="${dotnet_dir}v3.5/csc.exe$dotnet_flags"
+	alias csc4.0="${dotnet_dir}v4.0.30319/csc.exe$dotnet_flags"
 
 	unset dotnet_dir
 
