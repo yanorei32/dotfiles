@@ -80,12 +80,12 @@ if [[ $current_uname == *Cygwin* ]]; then
 
 	alias csc='csc4.0'
 
-	if [ -x $vs_dir'2017'$vs_builder_path'15.0' ]; then
+	if [ -x "$vs_dir'2017'$vs_builder_path'15.0'" ]; then
 		alias csc2017=$vs_dir'2017'$vs_builder_path'15.0'$vs_csc_path$dotnetflags
 		alias csc='csc2017'
 	fi
 
-	if [ -x $vs_dir'2019'$vs_builder_path'Current' ]; then
+	if [ -x "$vs_dir'2019'$vs_builder_path'Current'" ]; then
 		alias csc2019=$vs_dir'2019'$vs_builder_path'Current'$vs_csc_path$dotnetflags
 		alias csc='csc2019'
 	fi
