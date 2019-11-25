@@ -69,6 +69,7 @@ Plug 'mattn/emmet-vim'
 " syntax
 Plug 'hail2u/vim-css3-syntax'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'vim-scripts/ShaderHighLight'
 
 " Tabular (:Tableformat wrap)
 Plug 'godlygeek/tabular'
