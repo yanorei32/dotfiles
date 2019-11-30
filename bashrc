@@ -15,7 +15,6 @@ else
 fi
 
 unset color_prompt
-unset lower_hostname
 
 case "$TERM" in
 xterm*|rxvt*)
@@ -24,6 +23,8 @@ xterm*|rxvt*)
 *)
 	;;
 esac
+
+unset lower_hostname
 
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
