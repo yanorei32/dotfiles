@@ -1,0 +1,12 @@
+BoldAsFont=no
+Font=Myrica M
+FontHeight=12
+CursorType=block
+FontSmoothing=full
+BoldAsColour=no
+Locale=C
+Charset=UTF-8
+Term=xterm-256color
+BellType=-1
+BellFile=ambient-drop
+
