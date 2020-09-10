@@ -1,5 +1,5 @@
 # set locale
-export LANG=$(locale -uU)
+# export LANG=$(locale -uU)
 
 # read .bashrc if run by bash
 if [[ -n "${BASH_VERSION}" ]]; then
