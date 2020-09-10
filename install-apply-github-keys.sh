@@ -10,6 +10,11 @@ if ! type curl > /dev/null 2>&1; then
 	exit 1
 fi
 
+if ! type crontab > /dev/null 2>&1; then
+	echo "crontab is required"
+	exit 1
+fi
+
 DIR=$(cd $(dirname $0) && pwd)
 SCRIPT="${DIR}/apply-github-keys.sh"
 CRONTAB="${DIR}/crontab"
