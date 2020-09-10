@@ -15,11 +15,20 @@ alias ll='ls -l'
 alias la='ls -lA'
 alias l='ls'
 alias sl='ls'
-alias vi='vim'
 
-# set PATH so it includes user's private ~/.local/bin if it exists
+if type vim > /dev/null 2>&1; then
+	alias vi='vim'
+	export EDITOR=vim
+fi
+
+# set PATH if user has private ~/.local/bin
 if [[ -d $HOME/.local/bin ]]; then
     PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH if user has ~/go/bin
+if [[ -d $HOME/go/bin ]]; then
+    PATH="$HOME/go/bin:$PATH"
 fi
 
 lower_hostname=`hostname | tr '[:upper:]' '[:lower:]'`
