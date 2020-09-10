@@ -40,6 +40,15 @@ echo ""
 if [[ "$(uname -a)" == CYGWIN* ]]; then
 	echo "[Cygwin]"
 	install "minttyrc"		"${HOME}/.minttyrc"
+
+	USER_FONTDIR="${APPDATA}/../Local/Microsoft/Windows/Fonts/"
+	SYS_FONTDIR="/cygdrive/c/Windows/Fonts/"
+
+	if [[ ! -f "${SYS_FONTDIR}/Myrica.TTC" ]] && \
+		[[ ! -f "${USER_FONTDIR}/Myrica.TTC" ]]; then
+		echo -e "\e[31mERROR: minttyrc uses Myrica.TTC but not found.\e[m"
+		echo -e "\e[31m       You can download font from: https://myrica.estable.jp/myricamhistry/\e[m"
+	fi
 else
 	echo "[not Cygwin]"
 	install "rofi-config"	"${HOME}/.config/rofi/config"
