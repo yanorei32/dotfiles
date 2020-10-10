@@ -31,6 +31,10 @@ if [[ -d $HOME/go/bin ]]; then
     PATH="$HOME/go/bin:$PATH"
 fi
 
+if [[ -d $HOME/.cargo/bin ]]; then
+	PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 lower_hostname=`hostname | tr '[:upper:]' '[:lower:]'`
 current_uname=`uname -a`
 
