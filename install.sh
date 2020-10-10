@@ -17,9 +17,9 @@ function install () {
 
 	# backup
 	if [[ -f "$2" ]]; then
-		BACKUP="backup/${DATE}_$1.backup"
+		BACKUP="${DIR}/backup/${DATE}_$1.backup"
 		mkdir -p $(dirname "$BACKUP")
-		mv "$2" "${DIR}/${BACKUP}"
+		mv "$2" "${BACKUP}"
 		echo " - backup created ${BACKUP}"
 	fi
 
