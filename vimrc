@@ -97,6 +97,8 @@ Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
+Plug 'w0rp/ale'
+
 call plug#end()
 
 "---------------------------------------
@@ -124,7 +126,6 @@ let g:asyncomplete_auto_completeopt = 0
 let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 1
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
-
 
 "---------------------------------------
 " Lightline Plugin
@@ -227,6 +228,10 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 \	}
 
 map <C-n> <plug>NERDTreeTabsToggle<CR>
+
+let g:ale_linters = {}
+let g:ale_linters.markdown = ['textlint']
+let g:ale_completion_enabled = 1
 
 "---------------------------------------
 " Language / Encoding
