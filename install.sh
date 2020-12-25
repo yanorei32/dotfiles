@@ -33,6 +33,7 @@ function install () {
 
 echo "[Basic]"
 install "vimrc"			"${HOME}/.vimrc"
+install "screenrc"		"${HOME}/.screenrc"
 install "bashrc"		"${HOME}/.bashrc"
 install "profile"		"${HOME}/.profile"
 

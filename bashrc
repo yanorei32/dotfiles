@@ -116,10 +116,10 @@ if [[ $current_uname == *Cygwin* ]]; then
 	unset dotnet_flags
 elif [[ $current_uname == *Android* ]]; then
 	# termux
-	alias s='sshd -p 2222; hostname -I'
+	export PATH="${PREFIX}/local/bin:$PATH"
 else
-	# debian
-	alias upd8='sudo sh -c ''apt update -y; apt upgrade -y;'''
+	# others
+	:
 fi
 
 unset current_uname
