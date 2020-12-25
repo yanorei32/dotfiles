@@ -18,6 +18,8 @@ filetype plugin indent off
 " Plugin
 "---------------------------------------
 
+let g:rustfmt_autosave = 1
+
 " check status
 if has('vim_starting')
 	" add runtime path
@@ -73,6 +75,9 @@ Plug 'vim-scripts/ShaderHighLight'
 
 " Tabular (:Tableformat wrap)
 Plug 'godlygeek/tabular'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " vim-markdown (:Tableformat)
 Plug 'rcmdnk/vim-markdown'
@@ -317,6 +322,21 @@ autocmd FileType * setlocal formatoptions-=ro
 " Don't break select after ctrl-a and ctrl-x
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
+
+" lsp key-bind, copy from nvim repo
+nnoremap ==      :LspDocumentFormat<CR>
+nnoremap <c-]>   :LspDefinition<CR>
+nnoremap K       :LspHover<CR>
+nnoremap gD      :LspImplementation<CR>
+nnoremap <c-k>   :LspSignatureHelp<CR>
+nnoremap 1gD     :LspTypeDefinition<CR>
+nnoremap gr      :LspReferences<CR>
+nnoremap g0      :LspDocumentSymbol<CR>
+nnoremap gW      :LspWorkspaceSymbol<CR>
+nnoremap gd      :LspDeclaration<CR>
+nnoremap ]e      :LspNextError<CR>
+nnoremap [e      :LspPreviousError<CR>
+
 
 "---------------------------------------
 " Language configure
