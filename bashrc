@@ -21,6 +21,10 @@ if type vim > /dev/null 2>&1; then
 	export EDITOR=vim
 fi
 
+if type bat > /dev/null 2>&1; then
+	alias cat='bat'
+fi
+
 # set PATH if user has private ~/.local/bin
 if [[ -d $HOME/.local/bin ]]; then
     PATH="$HOME/.local/bin:$PATH"
