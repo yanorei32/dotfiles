@@ -16,6 +16,8 @@ alias la='ls -lA'
 alias l='ls'
 alias sl='ls'
 
+export GPG_TTY=$(tty)
+
 if type vim > /dev/null 2>&1; then
 	alias vi='vim'
 	export EDITOR=vim
