@@ -45,10 +45,10 @@ if [[ "$(uname -a)" == CYGWIN* ]]; then
 	USER_FONTDIR="${APPDATA}/../Local/Microsoft/Windows/Fonts/"
 	SYS_FONTDIR="/cygdrive/c/Windows/Fonts/"
 
-	if [[ ! -f "${SYS_FONTDIR}/Myrica.TTC" ]] && \
-		[[ ! -f "${USER_FONTDIR}/Myrica.TTC" ]]; then
-		echo -e "\e[31mERROR: minttyrc uses Myrica.TTC but not found.\e[m"
-		echo -e "\e[31m       You can download font from: https://myrica.estable.jp/myricamhistry/\e[m"
+	if [[ ! -f "${SYS_FONTDIR}/Cica-Regular.ttf" ]] && \
+		[[ ! -f "${USER_FONTDIR}/Cica-Regular.ttf" ]]; then
+		echo -e "\e[31mERROR: minttyrc uses Cica-Regular.ttf but not found.\e[m"
+		echo -e "\e[31m       You can download font from: https://github.com/miiton/Cica/releases/\e[m"
 	fi
 else
 	echo "[not Cygwin]"

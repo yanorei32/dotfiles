@@ -1,5 +1,5 @@
 BoldAsFont=no
-Font=Myrica M
+Font=Cica
 FontHeight=12
 CursorType=block
 FontSmoothing=full
@@ -9,4 +9,3 @@ Charset=UTF-8
 Term=xterm-256color
 BellType=-1
 BellFile=ambient-drop
-
