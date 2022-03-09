@@ -41,7 +41,7 @@ if [[ -d $HOME/.cargo/bin ]]; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-lower_hostname=`hostname | tr '[:upper:]' '[:lower:]'`
+lower_hostname=`if [[ -e /etc/hostname ]]; then cat /etc/hostname; else hostname; fi | tr '[:upper:]' '[:lower:]'`
 current_uname=`uname -a`
 
 if [[ $TERM =~ xterm-*(256)color ]]; then
