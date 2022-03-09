@@ -16,9 +16,15 @@ alias la='ls -lA'
 alias l='ls'
 alias sl='ls'
 
+export GPG_TTY=$(tty)
+
 if type vim > /dev/null 2>&1; then
 	alias vi='vim'
 	export EDITOR=vim
+fi
+
+if type bat > /dev/null 2>&1; then
+	alias cat='bat'
 fi
 
 # set PATH if user has private ~/.local/bin
@@ -35,7 +41,7 @@ if [[ -d $HOME/.cargo/bin ]]; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-lower_hostname=`hostname | tr '[:upper:]' '[:lower:]'`
+lower_hostname=`if [[ -e /etc/hostname ]]; then cat /etc/hostname; else hostname; fi | tr '[:upper:]' '[:lower:]'`
 current_uname=`uname -a`
 
 if [[ $TERM =~ xterm-*(256)color ]]; then

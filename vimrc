@@ -72,6 +72,7 @@ Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/ShaderHighLight'
+Plug 'cespare/vim-toml'
 
 " Tabular (:Tableformat wrap)
 Plug 'godlygeek/tabular'
@@ -102,6 +103,8 @@ Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'andys8/vim-elm-syntax'
+
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -232,6 +235,10 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 \	}
 
 map <C-n> <plug>NERDTreeTabsToggle<CR>
+
+let g:ale_linters = {}
+let g:ale_linters.markdown = ['textlint']
+let g:ale_completion_enabled = 1
 
 "---------------------------------------
 " Language / Encoding
