@@ -1,12 +1,20 @@
+# shellcheck disable=2148
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
 if [[ -x /usr/bin/dircolors ]]; then
+	# shellcheck disable=2015
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
+fi
+
+current_uname=$(uname -a)
+
+if [[ $current_uname  == *WSL2* ]]; then
+    eval "$(awk '{ print "export " $1 }' < /etc/environment)"
 fi
 
 alias du='du -h'
@@ -16,6 +24,7 @@ alias la='ls -lA'
 alias l='ls'
 alias sl='ls'
 
+# shellcheck disable=2155
 export GPG_TTY=$(tty)
 
 if type vim > /dev/null 2>&1; then
@@ -41,8 +50,7 @@ if [[ -d $HOME/.cargo/bin ]]; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-lower_hostname=`if [[ -e /etc/hostname ]]; then cat /etc/hostname; else hostname; fi | tr '[:upper:]' '[:lower:]'`
-current_uname=`uname -a`
+lower_hostname=$(if [[ -e /etc/hostname ]]; then cat /etc/hostname; else hostname; fi | tr '[:upper:]' '[:lower:]')
 
 if [[ $TERM =~ xterm-*(256)color ]]; then
 	PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -86,7 +94,7 @@ if [[ $current_uname == *Cygwin* ]]; then
 		function wincmd() {
 			CMD=$1
 			shift
-			$CMD $* 2>&1 | iconv -f cp932 -t utf-8
+			$CMD "$@" 2>&1 | iconv -f cp932 -t utf-8
 		}
 
 		dotnet_flags="$dotnet_flags /utf8output"
