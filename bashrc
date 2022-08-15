@@ -14,7 +14,7 @@ fi
 current_uname=$(uname -a)
 
 if [[ $current_uname  == *WSL2* ]]; then
-    eval "$(grep -v '^PATH=' /etc/environment | awk '{ print "export " $1 }')"
+    eval "$(grep -v '^PATH=' /etc/environment | grep -v '^#' | awk '{ print "export " $1 }')"
 fi
 
 alias du='du -h'
