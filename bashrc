@@ -17,6 +17,9 @@ if [[ $current_uname  == *WSL2* ]]; then
     eval "$(grep -v '^PATH=' /etc/environment | grep -v '^#' | awk '{ print "export " $1 }')"
 fi
 
+[[ -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
 alias du='du -h'
 alias df='df -h'
 alias ll='ls -l'
@@ -48,6 +51,15 @@ fi
 
 if [[ -d $HOME/.cargo/bin ]]; then
 	PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+export NPM_PACKAGES="$HOME/.npm-packages"
+if [[ -d $NPM_PACKAGES ]]; then
+	PATH="$NPM_PACKAGES/bin:$PATH"
+	MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+	export MANPATH
+	NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+	export NODE_PATH
 fi
 
 lower_hostname=$(if [[ -e /etc/hostname ]]; then cat /etc/hostname; else hostname; fi | tr '[:upper:]' '[:lower:]')
