@@ -1,18 +1,8 @@
-"---------------------------------------
-"  Yanorei32 .vimrc
-"---------------------------------------
-
-"\
-"| Tips. 
-"|  ':source ~/.vimrc' to reload .vimrc
-"/
-
-" Init
-"---------------------------------------
+" yanorei32's .vimrc
+"   Tips: ':source ~/.vimrc' to reload .vimrc
 
 filetype off
 filetype plugin indent off
-
 
 " Plugin
 "---------------------------------------
@@ -28,33 +18,37 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" plugin manager
+" Plugin Manager
 Plug 'junegunn/vim-plug', { 'dir': '~/.vim/plugged/vim-plug/autoload' }
 
+" Syntax
 Plug 'w0ng/vim-hybrid'
-Plug 'itchyny/lightline.vim'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-surround'
-Plug 'simeji/winresizer'
-Plug 'embear/vim-localvimrc'
-Plug 'godlygeek/tabular'
 
-" Tree
+" Quick Edit
+Plug 'tomtom/tcomment_vim'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
+
+" Integration
+Plug 'tyru/open-browser.vim'
+Plug 'kannokanno/previm'
+Plug 'embear/vim-localvimrc'
+
+" Window
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'itchyny/lightline.vim'
+Plug 'simeji/winresizer'
+Plug 'godlygeek/tabular'
 
-" Language specific
-Plug 'mattn/emmet-vim'
+" Language Support
 Plug 'hail2u/vim-css3-syntax'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/ShaderHighLight'
+Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
 Plug 'rcmdnk/vim-markdown'
-Plug 'tyru/open-browser.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'kannokanno/previm'
 
 " LSP
 Plug 'prabirshrestha/async.vim'
@@ -87,7 +81,7 @@ nnoremap ]e      :LspNextError<CR>
 nnoremap [e      :LspPreviousError<CR>
 
 
-" Lightline / Tab / Tree
+" Lightline / Tab / Tree / Plugin
 "---------------------------------------
 
 set laststatus=2
@@ -108,17 +102,7 @@ for n in range(1,9)
 endfor
 
 nnoremap <silent> [Tag]c :tabnew<CR>
-nnoremap <silent> [Tag]x :tabclose<CR>
-
 noremap <C-n> <plug>NERDTreeTabsToggle<CR>
-
-
-" Language / Encoding
-"---------------------------------------
-
-set encoding=utf-8
-set termencoding=utf-8
-set fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16,default
 
 " Basic
 "---------------------------------------
@@ -128,20 +112,19 @@ colorscheme hybrid
 
 set nocompatible
 syntax on
-set t_Co=256
 set number
 set nowrap
 set background=dark
 set cursorline
 set list listchars=tab:>\ ,trail:-,extends:»,precedes:«
-set backspace=2
 set tabstop=4 shiftwidth=4 autoindent smartindent
 set synmaxcol=160
-set lazyredraw ttyfast
+set lazyredraw nottyfast
 set regexpengine=1
-set notimeout
 set timeout timeoutlen=1000 ttimeoutlen=0
 set incsearch hlsearch
+set encoding=utf-8 termencoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16,default
 
 " search word display center
 nnoremap n nzz
@@ -157,7 +140,7 @@ autocmd FileType * setlocal formatoptions-=ro
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
 
-" finalize
+" Fin
 "---------------------------------------
 
 filetype plugin indent on
