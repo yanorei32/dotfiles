@@ -51,6 +51,7 @@ fi
 
 if [[ -d $HOME/.cargo/bin ]]; then
 	PATH="$HOME/.cargo/bin:$PATH"
+	. "$HOME/.cargo/env"
 fi
 
 export NPM_PACKAGES="$HOME/.npm-packages"
@@ -149,4 +150,3 @@ else
 fi
 
 unset current_uname
-
