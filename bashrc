@@ -27,8 +27,13 @@ alias la='ls -lA'
 alias l='ls'
 alias sl='ls'
 
-# shellcheck disable=2155
-export GPG_TTY=$(tty)
+
+if type gpgconf > /dev/null 2>&1; then
+	# shellcheck disable=2155
+	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+	export GPG_TTY=$(tty)
+	gpg-connect-agent updatestartuptty /bye > /dev/null
+fi
 
 if type vim > /dev/null 2>&1; then
 	alias vi='vim'

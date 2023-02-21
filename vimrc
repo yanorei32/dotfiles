@@ -66,6 +66,12 @@ call plug#end()
 set completeopt=menuone,noinsert,noselect
 let g:ale_completion_enabled = 1
 
+let g:lsp_inlay_hints_enabled = 0
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_document_code_actions_signs_enabled = 0
+let g:lsp_auto_enable = 1
+
+
 " lsp key-bind, copy from nvim repo
 nnoremap ==      :LspDocumentFormat<CR>
 nnoremap <c-]>   :LspDefinition<CR>
@@ -102,7 +108,8 @@ for n in range(1,9)
 endfor
 
 nnoremap <silent> [Tag]c :tabnew<CR>
-noremap <C-n> <plug>NERDTreeTabsToggle<CR>
+nnoremap <C-n> <plug>NERDTreeTabsToggle<CR>
+
 
 " Basic
 "---------------------------------------
@@ -118,7 +125,7 @@ set background=dark
 set cursorline
 set list listchars=tab:>\ ,trail:-,extends:»,precedes:«
 set tabstop=4 shiftwidth=4 autoindent smartindent
-set synmaxcol=160
+set synmaxcol=320
 set lazyredraw nottyfast
 set regexpengine=1
 set timeout timeoutlen=1000 ttimeoutlen=0
