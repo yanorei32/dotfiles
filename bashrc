@@ -56,7 +56,9 @@ fi
 
 if [[ -d $HOME/.cargo/bin ]]; then
 	PATH="$HOME/.cargo/bin:$PATH"
-	. "$HOME/.cargo/env"
+	if [[ -f "$HOME/.cargo/env" ]]; then
+		. "$HOME/.cargo/env"
+	fi
 fi
 
 export NPM_PACKAGES="$HOME/.npm-packages"
