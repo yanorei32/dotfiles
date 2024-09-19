@@ -16,7 +16,7 @@ function install () {
 	mkdir -p $(dirname "$2")
 
 	# backup
-	if [[ -f "$2" ]]; then
+	if [[ -f "$2" || -d "$2" ]]; then
 		BACKUP="${DIR}/backup/${DATE}_$1.backup"
 		mkdir -p $(dirname "$BACKUP")
 		mv "$2" "${BACKUP}"
@@ -52,6 +52,9 @@ if [[ "$(uname -a)" == CYGWIN* ]]; then
 	fi
 else
 	echo "[not Cygwin]"
-	install "rofi-config"	"${HOME}/.config/rofi/config"
+	install "i3status-rust"	"${HOME}/.config/i3status-rust"
+	install "alacritty"		"${HOME}/.config/alacritty"
+	install "rofi"			"${HOME}/.config/rofi"
+	install "sway"			"${HOME}/.config/sway"
 fi
 

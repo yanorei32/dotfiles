@@ -1,0 +1,39 @@
+[colors.bright]
+black = "0xe4e4e4"
+blue = "0x00005f"
+cyan = "0x005f5f"
+green = "0x005f00"
+magenta = "0x5f005f"
+red = "0x5f0000"
+white = "0x000000"
+yellow = "0x5f5f00"
+
+[colors.normal]
+black = "0x1d1f21"
+blue = "0x81a2be"
+cyan = "0x8abeb7"
+green = "0xb5bd68"
+magenta = "0xb294bb"
+red = "0xcc6666"
+white = "0xc5c8c6"
+yellow = "0xf0c674"
+
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 22.0
+
+[font.normal]
+family = "Cica"
+
+[window]
+opacity = 0.8
+
+[window.dimensions]
+columns = 80
+lines = 24
