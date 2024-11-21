@@ -132,6 +132,7 @@ set timeout timeoutlen=1000 ttimeoutlen=0
 set incsearch hlsearch
 set encoding=utf-8 termencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16,default
+set backspace=2
 
 " search word display center
 nnoremap n nzz
