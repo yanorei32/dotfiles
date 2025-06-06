@@ -28,7 +28,7 @@ alias l='ls'
 alias sl='ls'
 
 
-if type gpgconf > /dev/null 2>&1; then
+if [[ $current_uname  == *Linux* ]] && type gpgconf > /dev/null 2>&1; then
 	# shellcheck disable=2155
 	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 	export GPG_TTY=$(tty)
@@ -148,6 +148,8 @@ if [[ $current_uname == *Cygwin* ]]; then
 	unset vs_csc_path
 
 	unset dotnet_flags
+
+	eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
 elif [[ $current_uname == *Android* ]]; then
 	# termux
 	export PATH="${PREFIX}/local/bin:$PATH"
