@@ -40,9 +40,15 @@ if type vim > /dev/null 2>&1; then
 	export EDITOR=vim
 fi
 
-if type bat > /dev/null 2>&1; then
-	alias cat='bat'
+if type xrdb > /dev/null 2>&1; then
+	if [[ -f $HOME/.Xresources ]]; then
+		xrdb -load "$HOME/.Xresources"
+	fi
 fi
+
+# if type bat > /dev/null 2>&1; then
+# 	alias cat='bat'
+# fi
 
 # set PATH if user has private ~/.local/bin
 if [[ -d $HOME/.local/bin ]]; then
@@ -59,6 +65,18 @@ if [[ -d $HOME/.cargo/bin ]]; then
 	if [[ -f "$HOME/.cargo/env" ]]; then
 		. "$HOME/.cargo/env"
 	fi
+fi
+
+if [[ -f $HOME/.rye/env ]]; then
+	source "$HOME/.rye/env"
+fi
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+if [[ -d "$PNPM_HOME" ]]; then
+	case ":$PATH:" in
+	  *":$PNPM_HOME:"*) ;;
+	  *) export PATH="$PNPM_HOME:$PATH" ;;
+	esac
 fi
 
 export NPM_PACKAGES="$HOME/.npm-packages"

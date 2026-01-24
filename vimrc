@@ -48,7 +48,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/ShaderHighLight'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-Plug 'rcmdnk/vim-markdown'
+Plug 'leafgarland/typescript-vim'
+Plug 'hashivim/vim-terraform'
 
 " LSP
 Plug 'prabirshrestha/async.vim'
@@ -63,12 +64,14 @@ call plug#end()
 "---------------------------------------
 
 set completeopt=menuone,noinsert,noselect
-let g:ale_completion_enabled = 1
 
 let g:lsp_inlay_hints_enabled = 0
 let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_document_code_actions_signs_enabled = 0
 let g:lsp_auto_enable = 1
+
+let g:lsp_settings_filetype_markdown = []
 
 
 " lsp key-bind, copy from nvim repo
@@ -84,6 +87,7 @@ nnoremap gW      :LspWorkspaceSymbol<CR>
 nnoremap gd      :LspDeclaration<CR>
 nnoremap ]e      :LspNextError<CR>
 nnoremap [e      :LspPreviousError<CR>
+" let g:lsp_settings = { 'clangd': { 'cmd': ['./clangd.sh'] } }
 
 
 " Lightline / Tab / Tree / Plugin
@@ -126,7 +130,7 @@ set list listchars=tab:>\ ,trail:-,extends:»,precedes:«
 set tabstop=4 shiftwidth=4 autoindent smartindent
 set synmaxcol=320
 set lazyredraw nottyfast
-set regexpengine=1
+set regexpengine=2
 set timeout timeoutlen=1000 ttimeoutlen=0
 set incsearch hlsearch
 set encoding=utf-8 termencoding=utf-8
